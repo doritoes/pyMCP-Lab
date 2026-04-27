@@ -9,25 +9,31 @@ source ./venv/bin/activate
 pip install "mcp[cli]" requests
 ~~~
 
-2. Create the project
+2. Ubuntu has old nodejs version
+    - `node -v`
+    - `curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -`
+    - `sudo apt install -y nodejs`
+    - `node -v`
+
+3. Create the project
 ~~~
 mkdir mcp-lab
 cd mcp-lab
 touch server.py
 ~~~
 
-3. Edit server.py to match [server.py](server.py)
-4. Run the server
+4. Edit server.py to match [server.py](server.py)
+5. Run the server
     - `mcp dev server.py`
     - The first time, you will be prompted to install the inspector, choose **y**
     - It will stay running in the background, press control-c to stop it
-5. The Inspector will launch in a web page on localhost port 6274
+6. The Inspector will launch in a web page on localhost port 6274
     - Change command to **python3**
     - Change arguments to **server.py**
     - Click **Connect**
-6. Click **Tools** then **List Tools**
+7. Click **Tools** then **List Tools**
     - the tools work (try adding 10 and 5; try a joke, then a joke about cats)
-7. Click Resources panel
+8. Click Resources panel
     - **List Resources** shows readme (click to view contents)
-8. Click Prompts panel
+9. Click Prompts panel
     - **List Prompts** and then **Get Prompt**, expand content to see the prompt
