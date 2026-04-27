@@ -10,10 +10,12 @@ pip install "mcp[cli]" requests
 ~~~
 
 2. Ubuntu has old nodejs version, update it
-    - `node -v`
-    - `curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -`
-    - `sudo apt install -y nodejs`
-    - `node -v`
+~~~
+node -v
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+~~~
 
 3. Create the project
 ~~~
