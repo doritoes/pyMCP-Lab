@@ -16,4 +16,4 @@ cd mcp-lab
 touch server.py
 ~~~
 
-3. Edit server.py to match [server.py](Chapter_2/server.py)
+3. Edit server.py to match [server.py](server.py)
