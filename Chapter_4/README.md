@@ -21,6 +21,9 @@ touch .vscode/mcp.json
 **NOT WORKING YET**
 
 **IMPORTANT** To actually run with Claude Desktop on a Windows machine, you have some work to do
+
+To upgrade Python from 3.9 on Windows 11, download the latest installer (e.g., 3.12 or 3.13) from python.org, run it, and check "Add Python to PATH" before clicking "Install Now". 
+
 1. Set up the environment
     - Install `uv1`
       - `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
@@ -32,6 +35,7 @@ touch .vscode/mcp.json
       - `cd mcp-lab`
     - Set up virtual environment
       - `uv venv`
+      - `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
       - `.venv\Scripts\activate`
     - Install dependencies
       - `uv add mcp[cli] httpx`
