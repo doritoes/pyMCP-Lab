@@ -1,5 +1,5 @@
 # Chapter 2
-We are using Python (python3) in Windows WSL Ubuntu.
+We are using Python (python3) in Windows WSL Ubuntu 24.04
 
 1. Set up the environment
 ~~~
@@ -20,12 +20,14 @@ touch server.py
 4. Run the server
     - `mcp dev server.py`
     - The first time, you will be prompted to install the inspector, choose **y**
+    - It will stay running in the background, press control-c to stop it
 5. The Inspector will launch in a web page on localhost port 6274
     - Change command to **python3**
     - Change arguments to **server.py**
     - Click **Connect**
 6. Click **Tools** then **List Tools**
     - the tools work (try adding 10 and 5; try a joke, then a joke about cats)
-7. Click Resource panel
+7. Click Resources panel
     - **List Resources** shows readme (click to view contents)
-    - **List Templates** does not work yet (it's empty)
+8. Click Prompts panel
+    - **List Prompts** and then **Get Prompt**, expand content to see the prompt
