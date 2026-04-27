@@ -13,23 +13,36 @@ touch .vscode/mcp.json
 "mcpServers": {
   "demo-server": {
     "type": "stdio",
-    "command": "python",
-    "args": ["server.py"]
+    "command": "uv",
+    "args": ["run", "mcp", "run", "server.py"]
   }
 }
 ~~~
 **NOT WORKING YET**
 
 **IMPORTANT** To actually run with Claude Desktop on a Windows machine, you have some work to do
-1. Set up Python to run this server
-2. Install Claude Code desktop app
-3. Create a new project (e.g., "mcp-lab")
-4. Files > + Add Files > add server.py
-    - make user on local system, not OneDrive
+1. Set up the environment
+    - Install `uv1`
+      - `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
+      - Follow instructions to add to the path
+      - $env:Path = "C:\Users\sethh\.local\bin;$env:Path"
+    - Create project directory
+      - Change directory to where the proejct belongs (e.e., `cd \projects\`)
+      - `uv init mcp-lab`
+      - `cd mcp-lab`
+    - Set up virtual environment
+      - `uv venv`
+      - `.venv\Scripts\activate`
+    - Install dependencies
+      - `uv add mcp[cli] httpx`
+    - `new-item server.py`
+2. Modify the server.py file with the contents of [server.py](server.py)
+3. Install Claude Code desktop app
+4. Create a new project (e.g., "mcp-lab-testing")
 5. Hamburger menu > File > Settings > Developer > Local MCP servers > **Edit Config**
-6. A folder will open to the **claude_desktop_config.json** file
-7. Edit the file
-8. Add the mcpServers section
+7. A folder will open to the **claude_desktop_config.json** file
+8. Edit the file
+9. Add the mcpServers section
     - At the end of the "preferences" stanza, add a comma, then paste the content (above)
     - Example of the full file below
 ~~~
@@ -43,10 +56,12 @@ touch .vscode/mcp.json
   "mcpServers": {
     "demo-server": {
       "type": "stdio",
-      "command": "python",
-      "args": ["server.py"]
+      "command": "uv",
+      "args": ["run", "mcp", "run", "server.py"]
     }
   }
 }
 ~~~
 8. Restart Claude app
+9. Check if MCP server is connected ?????
+10. Ask questions
