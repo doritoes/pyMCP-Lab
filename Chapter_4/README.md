@@ -87,7 +87,7 @@ touch .vscode/mcp.json
     - Check by clicking Hamburger > File > Settings > Developer
     - if demo-server is **running** you are are good
 ## Testing
-Go back to the chat window and test by asking questions.
+Go back to the Claude desktop app chat window and test by asking questions.
 - Ask: "tell me Chuck Norris Joke"
   - It will ask you to approve using the tool
 - Ask: "tell me Chuck Norris Joke about dogs"
