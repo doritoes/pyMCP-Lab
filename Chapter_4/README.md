@@ -8,7 +8,7 @@ touch .vscode/mcp.json
 ~~~
 2. Update mcp.json for local stdio server: [mcp-stdio.json](mcp-stdio.json)
 3. Example of for an SSE server on Windows (you will need to modify and create server.js): [mcp-sse-windows.json](mcp-sse-windows.json)
-4. If you are doing the Claude Desktop demo, here is the code to add to Claude Desktop’s claude_desktop_config.json under mcpServers (note "python" on Windows, not "python3"):
+4. If you are doing the Claude Desktop demo, here is the example code to add to Claude Desktop’s claude_desktop_config.json under mcpServers (note "python" on Windows, not "python3"):
 ~~~
 "mcpServers": {
   "demo-server": {
@@ -50,21 +50,22 @@ touch .vscode/mcp.json
     - Modify `pyproject.toml`
       - Update version to: `requires-python = ">=3.14"`
     - Install dependencies
-      - `uv add mcp[cli] httpx`
+      - `uv add mcp[cli] httpx requests`
       - To retry
         - `uv python pin 3.14`
         -  `uv sync`
-        -  `uv add mcp[cli] httpx`
+        -  `uv add mcp[cli] httpx requests`
     - `new-item server.py`
 4. Modify the server.py file with the contents of [server.py](server.py)
+    - For example, I created `c:\tools\mcp-lab\server.py`
 5. Install Claude Code desktop app
-4. Create a new project (e.g., "mcp-lab-testing")
-5. Hamburger menu > File > Settings > Developer > Local MCP servers > **Edit Config**
-7. A folder will open to the **claude_desktop_config.json** file
-8. Edit the file
-9. Add the mcpServers section
+6. Create a new project (e.g., "mcp-lab-testing")
+7. Hamburger menu > File > Settings > Developer > Local MCP servers > **Edit Config**
+8. A folder will open to the **claude_desktop_config.json** file
+9. Edit the file
+10. Add the mcpServers section
     - At the end of the "preferences" stanza, add a comma, then paste the content (above)
-    - Example of the full file below
+    - Example of the full file below for C:\tools\mcp-lab\server.py utilizing the venv and python3.14
 ~~~
 {
   "preferences": {
@@ -77,11 +78,21 @@ touch .vscode/mcp.json
     "demo-server": {
       "type": "stdio",
       "command": "uv",
-      "args": ["run", "mcp", "run", "server.py"]
+      "args": ["run", "--project","C:\\tools\\mcp-lab", "python", "C:\\tools\\mcp-lab\\server.py"]
     }
   }
 }
 ~~~
-8. Restart Claude app
-9. Check if MCP server is connected ?????
-10. Ask questions
+11. Restart Claude app
+    - You will see a brief error message if MCP server failed to connect
+    - Check by clicking Hamburger > File > Settings > Developer
+    - if demo-server is **running** you are are good
+12. Test by asking questions
+    - Go back to the chat window
+    - Ask: "tell me Chuck Norris Joke"
+      - It will ask you to approve using the tool
+    - Ask: "tell me Chuck Norris Joke about docs"
+    - Ask: "what is 42 plus 58?"
+      - It will probably just give you the answer without using the tool
+    - Ask: "use the add tool to add 42 and 58"
+      - It will ask you to approve using the tool
