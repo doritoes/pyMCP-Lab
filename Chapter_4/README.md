@@ -33,25 +33,31 @@ touch .vscode/mcp.json
     - Add Python to PATH
     - I found python --version kept showing v.9 by py --version showed 3.14.4
 2. Uninstall Python 3.9 from the Microsoft store
-2. Set up the environment
+3. Set up the environment
     - Install `uv`
       - `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
       - Follow instructions to add to the path
       - $env:Path = "C:\Users\sethh\.local\bin;$env:Path"
+      - `uv python install 3.14`
     - Create project directory
       - Change directory to where the proejct belongs (e.e., `cd \projects\`)
       - `uv init mcp-lab`
       - `cd mcp-lab`
     - Set up virtual environment
-      - `uv venv`
+      - `uv venv --python 3.14`
       - `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
       - `.venv\Scripts\activate`
+    - Modify `pyproject.toml`
+      - Update version to: `requires-python = ">=3.14"`
     - Install dependencies
       - `uv add mcp[cli] httpx`
-      - **FAILING HERE** still finding  python_full_version == '3.9.*'
+      - To retry
+        - `uv python pin 3.14`
+        -  `uv sync`
+        -  `uv add mcp[cli] httpx`
     - `new-item server.py`
-2. Modify the server.py file with the contents of [server.py](server.py)
-3. Install Claude Code desktop app
+4. Modify the server.py file with the contents of [server.py](server.py)
+5. Install Claude Code desktop app
 4. Create a new project (e.g., "mcp-lab-testing")
 5. Hamburger menu > File > Settings > Developer > Local MCP servers > **Edit Config**
 7. A folder will open to the **claude_desktop_config.json** file
