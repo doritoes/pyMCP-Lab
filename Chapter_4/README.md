@@ -18,10 +18,9 @@ touch .vscode/mcp.json
   }
 }
 ~~~
-**NOT WORKING YET**
 
 ## Preparing Windows 11
-**IMPORTANT** To actually run with Claude Desktop on a Windows machine, you have some work to do
+**IMPORTANT** To actually run with Claude Desktop on a Windows machine with the MCP server, you have some work to do
 
 1. Upgrade Python as version 3.9 is too old (and it's End of Life!)
     - download the latest installer ("bugfix", currently 3.14)
@@ -87,12 +86,12 @@ touch .vscode/mcp.json
     - You will see a brief error message if MCP server failed to connect
     - Check by clicking Hamburger > File > Settings > Developer
     - if demo-server is **running** you are are good
-12. Test by asking questions
-    - Go back to the chat window
-    - Ask: "tell me Chuck Norris Joke"
-      - It will ask you to approve using the tool
-    - Ask: "tell me Chuck Norris Joke about docs"
-    - Ask: "what is 42 plus 58?"
-      - It will probably just give you the answer without using the tool
-    - Ask: "use the add tool to add 42 and 58"
-      - It will ask you to approve using the tool
+## Testing
+Go back to the chat window and test by asking questions.
+- Ask: "tell me Chuck Norris Joke"
+  - It will ask you to approve using the tool
+- Ask: "tell me Chuck Norris Joke about docs"
+- Ask: "what is 42 plus 58?"
+  - It will probably just give you the answer without using the tool
+- Ask: "use the add tool to add 42 and 58"
+  - It will ask you to approve using the tool
