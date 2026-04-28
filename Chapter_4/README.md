@@ -90,7 +90,7 @@ touch .vscode/mcp.json
 Go back to the chat window and test by asking questions.
 - Ask: "tell me Chuck Norris Joke"
   - It will ask you to approve using the tool
-- Ask: "tell me Chuck Norris Joke about docs"
+- Ask: "tell me Chuck Norris Joke about dogs"
 - Ask: "what is 42 plus 58?"
   - It will probably just give you the answer without using the tool
 - Ask: "use the add tool to add 42 and 58"
