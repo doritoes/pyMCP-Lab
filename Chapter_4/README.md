@@ -32,6 +32,7 @@ touch .vscode/mcp.json
       - MSI package (see documentation before use)
     - Add Python to PATH
     - I found python --version kept showing v.9 by py --version showed 3.14.4
+2. Uninstall Python 3.9 from the Microsoft store
 2. Set up the environment
     - Install `uv`
       - `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
@@ -47,6 +48,7 @@ touch .vscode/mcp.json
       - `.venv\Scripts\activate`
     - Install dependencies
       - `uv add mcp[cli] httpx`
+      - **FAILING HERE** still finding  python_full_version == '3.9.*'
     - `new-item server.py`
 2. Modify the server.py file with the contents of [server.py](server.py)
 3. Install Claude Code desktop app
