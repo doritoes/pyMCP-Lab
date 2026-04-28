@@ -20,12 +20,20 @@ touch .vscode/mcp.json
 ~~~
 **NOT WORKING YET**
 
+## Preparing Windows 11
 **IMPORTANT** To actually run with Claude Desktop on a Windows machine, you have some work to do
 
-To upgrade Python from 3.9 on Windows 11, download the latest installer (e.g., 3.12 or 3.13) from python.org, run it, and check "Add Python to PATH" before clicking "Install Now". 
-
-1. Set up the environment
-    - Install `uv1`
+1. Upgrade Python as version 3.9 is too old (and it's End of Life!)
+    - download the latest installer ("bugfix", currently 3.14)
+    - select version, scroll down, and click **Download Pythin install manager**
+    - Note the options
+      - WinGet: `winget install 9NQ7512CXL7T`
+      - Installer (MSIX)
+      - MSI package (see documentation before use)
+    - Add Python to PATH
+    - I found python --version kept showing v.9 by py --version showed 3.14.4
+2. Set up the environment
+    - Install `uv`
       - `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
       - Follow instructions to add to the path
       - $env:Path = "C:\Users\sethh\.local\bin;$env:Path"
