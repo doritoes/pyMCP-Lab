@@ -50,7 +50,54 @@ RESULT: [TextContent(type='text', text='8', annotations=None, meta=None)]
 ## Section 8
 
 ### Converting tools for the LLM
+1. `pip install azure-ai-inference`
+2. Create llm.py from (llm.py)[llm.py]
+3. Get a GitHub personal access token
+    - Create the Token on GitHub
+      - Go to GitHub Settings → [Developer settings](https://github.com/settings/tokens)
+      - Select Personal access tokens and then Tokens (classic)
+      - Click Generate new token → Generate new token (classic)
+        - Note: Give it a name like "MCP Lab Token"
+        - Default expiration is 30 days
+        - Scopes (Important): For this specific lab using GitHub Models, you don't need to check anything
+        - Click Generate token and copy it immediately. You won't see it again!
+4. Set the environment variable with your GitHub personal access token:
+    - `export GITHUB_TOKEN=your_personal_access_token`
+    - Note: If your token contains special characters, use the single quotes ' ' to ensure the terminal handles it correctly.
+5. `python3 llm.py`
 
+Example output:
+~~~
+(venv) linux@LT-L4880X:~/mcp-lab$ python3 llm.py
+[04/29/26 18:11:43] INFO     Processing request of type ListResourcesRequest                     server.py:727
+LISTING RESOURCES
+Resource:  ('meta', None)
+                    INFO     Processing request of type ListToolsRequest                         server.py:727
+LISTING TOOLS
+Tool:  add
+Tool {'a': {'title': 'A', 'type': 'integer'}, 'b': {'title': 'B', 'type': 'integer'}}
+Tool:  joke
+Tool {'topic': {'anyOf': [{'type': 'string'}, {'type': 'null'}], 'default': None, 'title': 'Topic'}}
+Resource:  ('nextCursor', None)
+                    INFO     Processing request of type ListToolsRequest                         server.py:727
+LISTING TOOLS
+Tool:  add
+Tool {'a': {'title': 'A', 'type': 'integer'}, 'b': {'title': 'B', 'type': 'integer'}}
+Tool:  joke
+Tool {'topic': {'anyOf': [{'type': 'string'}, {'type': 'null'}], 'default': None, 'title': 'Topic'}}
+Resource:  ('resources', [Resource(name='readme', title=None, uri=AnyUrl('reference://readme'), description='How to use this server and sample calls.', mimeType='text/plain', size=None, icons=None, annotations=None, meta=None)])
+                    INFO     Processing request of type ListToolsRequest                         server.py:727
+LISTING TOOLS
+Tool:  add
+Tool {'a': {'title': 'A', 'type': 'integer'}, 'b': {'title': 'B', 'type': 'integer'}}
+Tool:  joke
+Tool {'topic': {'anyOf': [{'type': 'string'}, {'type': 'null'}], 'default': None, 'title': 'Topic'}}
+CALLING LLM
+TOOL:  {'function': {'arguments': '{"a":2,"b":20}', 'name': 'add'}, 'id': 'call_HUIO69xe5H0Pbd62LUyZYqOe', 'type': 'function'}
+[04/29/26 18:11:44] INFO     Processing request of type CallToolRequest                          server.py:727
+TOOLS result:  [TextContent(type='text', text='22', annotations=None, meta=None)]
+(venv) linux@LT-L4880X:~/mcp-lab$
+~~~
 ### Rule prompts to tools
 
 ### Handle responses
