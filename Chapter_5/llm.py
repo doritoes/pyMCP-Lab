@@ -5,10 +5,10 @@ import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
 import json
-# Create server parameters for stdio connection (uv)
+# Create server parameters for stdio connection
 server_params = StdioServerParameters(
-    command="uv", # Executable
-    args=["run", "mcp", "run", "server.py"], # Optional command line arguments
+    command="python3", # Executable
+    args=["server.py"], # Optional command line arguments
     env=None, # Optional environment variables
 )
 def call_llm(prompt, functions):
@@ -59,28 +59,28 @@ def convert_to_llm_tool(tool):
 async def run():
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
-        # Initialize the connection
-        await session.initialize()
-        # List available resources
-        resources = await session.list_resources()
-        print("LISTING RESOURCES")
-        for resource in resources:
-            print("Resource: ", resource)
-            # List available tools
-            tools = await session.list_tools()
-            print("LISTING TOOLS")
-            functions = []
-            for tool in tools.tools:
-                print("Tool: ", tool.name)
-                print("Tool", tool.inputSchema["properties"])
-                functions.append(convert_to_llm_tool(tool))
-        prompt = "Add 2 to 20"
-        # ask LLM what tools to call, if any
-        functions_to_call = call_llm(prompt, functions)
-        # call suggested functions
-        for f in functions_to_call:
-            result = await session.call_tool(f["name"], arguments=f["args"])
-            print("TOOLS result: ", result.content)
+            # Initialize the connection
+            await session.initialize()
+            # List available resources
+            resources = await session.list_resources()
+            print("LISTING RESOURCES")
+            for resource in resources:
+                print("Resource: ", resource)
+                # List available tools
+                tools = await session.list_tools()
+                print("LISTING TOOLS")
+                functions = []
+                for tool in tools.tools:
+                    print("Tool: ", tool.name)
+                    print("Tool", tool.inputSchema["properties"])
+                    functions.append(convert_to_llm_tool(tool))
+            prompt = "Add 2 to 20"
+            # ask LLM what tools to call, if any
+            functions_to_call = call_llm(prompt, functions)
+            # call suggested functions
+            for f in functions_to_call:
+                result = await session.call_tool(f["name"], arguments=f["args"])
+                print("TOOLS result: ", result.content)
 
 if __name__ == "__main__":
     import asyncio
