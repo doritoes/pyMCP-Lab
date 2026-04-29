@@ -1,4 +1,6 @@
-# Chapter 7
+# Chapter 5 (Section 7)
+Strangely enough, sections stop matching Chapter numbers.
+
 We are using Python (python3) in Windows WSL Ubuntu 24.04
 
 1. Don't forget to activate your virtual environment (venv)
