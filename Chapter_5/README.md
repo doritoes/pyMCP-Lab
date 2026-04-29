@@ -1,6 +1,7 @@
-# Chapter 5 (Section 7)
+# Chapter 5
 Strangely enough, sections stop matching Chapter numbers.
 
+## Section 7 - Startiong and negotiating
 We are using Python (python3) in Windows WSL Ubuntu 24.04
 
 1. Don't forget to activate your virtual environment (venv)
@@ -45,3 +46,14 @@ CALL TOOL: add(a=1, b=7)
 RESULT: [TextContent(type='text', text='8', annotations=None, meta=None)]
 (venv) linux@LT-L4880X:~/mcp-lab$
 ~~~
+
+## Section 8
+
+### Converting tools for the LLM
+
+### Rule prompts to tools
+
+### Handle responses
+
+### Runtimes and composition
+
