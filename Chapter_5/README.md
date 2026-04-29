@@ -1,7 +1,7 @@
 # Chapter 5
 Strangely enough, sections stop matching Chapter numbers.
 
-## Section 7 - Startiong and negotiating
+## Section 7 - Starting and negotiating
 We are using Python (python3) in Windows WSL Ubuntu 24.04
 
 1. Don't forget to activate your virtual environment (venv)
