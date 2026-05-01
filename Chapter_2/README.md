@@ -9,11 +9,13 @@ source ./venv/bin/activate
 pip install "mcp[cli]" requests
 ~~~
 
-2. Ubuntu has old nodejs version
-    - `node -v`
-    - `curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -`
-    - `sudo apt install -y nodejs`
-    - `node -v`
+2. Ubuntu has old nodejs version, update it
+~~~
+node -v
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+~~~
 
 3. Create the project
 ~~~
@@ -37,3 +39,8 @@ touch server.py
     - **List Resources** shows readme (click to view contents)
 9. Click Prompts panel
     - **List Prompts** and then **Get Prompt**, expand content to see the prompt
+10. Use Inspector in CLI mode (headless, works without "mcp dev server.py")
+    - `npx @modelcontextprotocol/inspector --cli python3 server.py --method tools/list`
+    - `npx @modelcontextprotocol/inspector --cli python3 server.py --method tools/call --tool-name add --tool-arg a=18 --tool-arg b=2`
+    - `npx @modelcontextprotocol/inspector --cli python3 server.py --method tools/call --tool-name joke --tool-arg topic=cats`
+    - `npx @modelcontextprotocol/inspector --cli python3 server.py --method tools/call --tool-name joke`
