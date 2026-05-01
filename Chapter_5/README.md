@@ -101,8 +101,10 @@ TOOLS result:  [TextContent(type='text', text='22', annotations=None, meta=None)
 ### Rule prompts to tools
 The book's code is saved to [routeprompts.py](routeprompts.py)
 
+It looks like it goes into client.py, but not sure how to activate it.
+
 ### Handle responses
-The book's code is saved to [multipleservers.py](multipleservers.py)
+Nothing to note
 
 ### Runtimes and composition
-
+The book's code is saved to [multipleservers.py](multipleservers.py)
