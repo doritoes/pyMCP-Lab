@@ -99,8 +99,10 @@ TOOLS result:  [TextContent(type='text', text='22', annotations=None, meta=None)
 (venv) linux@LT-L4880X:~/mcp-lab$
 ~~~
 ### Rule prompts to tools
+The book's code is saved to [routeprompts.py](routeprompts.py)
 
 ### Handle responses
+The book's code is saved to [multipleservers.py](multipleservers.py)
 
 ### Runtimes and composition
 
